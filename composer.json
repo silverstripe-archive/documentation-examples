@@ -1,0 +1,19 @@
+{
+	"name": "fullscreeninteractive/silverstripe-framework-app-boilerplate",
+	"description": "A boilerplate project for starting an application using the SilverStripe Framework",
+	"authors": [{
+		"name": "Will Rossiter",
+		"email": "will@fullscreen.io"
+	}],
+	"require": {
+		"silverstripe/framework": "3.1.x-dev",
+		"silverstripe/cms": "3.1.x-dev"
+	},
+    "suggest": {
+        "silverstripe/sqlite3": "Use SQLite3 for small applications or faster unit testing",
+        "silverstripe/googlesitemaps": "Create a sitemap.xml file including links to your URL's"
+    },
+    "config": {
+        "process-timeout": 1200
+    }
+}
