@@ -15,7 +15,8 @@ class Page_Controller extends ContentController {
 	
 	private static $allowed_actions = array(
 		'rss',
-		'players'
+		'players',
+		'email'
 	);
 
 	public function init() {
@@ -32,7 +33,7 @@ class Page_Controller extends ContentController {
 			"10 Most Recently Updated Pages", 
 			"Shows a list of the 10 most recently updated pages."
 		);
-		
+
 		return $rss->outputToBrowser();
 	}
 
@@ -44,7 +45,7 @@ class Page_Controller extends ContentController {
 		);
 
 		$rss->setTemplate('PlayersRss');
-		
+
 		return $rss->outputToBrowser();
 	}
 
@@ -76,5 +77,10 @@ class Page_Controller extends ContentController {
 		}
 
 		return $output;
+	}
+
+	public function email() {
+		$email = new MyEmail(Member::get()->first());
+		$email->send();
 	}
 }

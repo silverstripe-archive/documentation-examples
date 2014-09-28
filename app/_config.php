@@ -16,3 +16,7 @@ if(!Director::isDev()) {
 if(isset($_REQUEST['flush'])) {
 	SS_Cache::set_cache_lifetime('any', -1, 100);
 }
+
+if(Director::isDev()) {
+	Email::set_mailer(new LocalMailer());
+}
