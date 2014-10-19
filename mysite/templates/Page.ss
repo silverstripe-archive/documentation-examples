@@ -19,5 +19,51 @@
 		<% loop WellingtonWeather %>
 			$Description
 		<% end_loop %>
+
+		<% with $CurrentMember %>
+			<p>Welcome $FirstName $Surname.</p>
+		<% end_with %>
+
+		<% if $Dishes %>
+		<ul>
+			<% loop $Dishes %>
+				<li>$Title ($Price.Nice)</li>
+			<% end_loop %>
+		</ul>
+		<% end_if %>
+
+		<p>You are coming from $UsersIpAddress on $TodaysDate.Nice</p>
+
+		<%t Member.WELCOME 'Welcome {name} to {site}' name=$Member.Name site="Foobar.com" %>
+
+		<h2>Pagination</h2>
+		<ul>
+		<% loop $PaginatedPages %>
+			<li><a href="$Link">$Title</a></li>
+		<% end_loop %>
+		</ul>
+
+		<% if $PaginatedPages.MoreThanOnePage %>
+		<% if $PaginatedPages.NotFirstPage %>
+			<a class="prev" href="$PaginatedPages.PrevLink">Prev</a>
+		<% end_if %>
+		<% loop $PaginatedPages.Pages %>
+			<% if $CurrentBool %>
+				$PageNum
+			<% else %>
+				<% if $Link %>
+					<a href="$Link">$PageNum</a>
+				<% else %>
+					...
+				<% end_if %>
+			<% end_if %>
+			<% end_loop %>
+		<% if $PaginatedPages.NotLastPage %>
+			<a class="next" href="$PaginatedPages.NextLink">Next</a>
+		<% end_if %>
+	<% end_if %>
+
+	$HelloForm
+	$SearchForm
 	</body>
 </html>

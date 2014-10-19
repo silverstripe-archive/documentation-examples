@@ -1,2 +1,5 @@
 Email:
   admin_email: support@silverstripe.org
+SiteConfig:
+  extensions:
+    - CustomSiteConfig
